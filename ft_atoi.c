@@ -6,7 +6,7 @@
 /*   By: mhrima <mhrima@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 23:41:16 by mhrima            #+#    #+#             */
-/*   Updated: 2022/10/14 16:21:15 by mhrima           ###   ########.fr       */
+/*   Updated: 2022/10/19 01:21:41 by mhrima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ int	the_sign(char c, int *i)
 int	ft_atoi(const char *str)
 {
 	int			i;
-	long long	sign;
-	long long	num;
+	int			sign;
+	long int	num;
 
 	i = 0;
 	num = 0;

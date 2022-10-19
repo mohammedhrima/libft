@@ -6,7 +6,7 @@
 /*   By: mhrima <mhrima@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 10:40:52 by mhrima            #+#    #+#             */
-/*   Updated: 2022/10/13 11:03:26 by mhrima           ###   ########.fr       */
+/*   Updated: 2022/10/19 02:54:27 by mhrima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_putstr_fd(char *s, int fd)
 	int	i;
 
 	i = 0;
-	while (s[i])
+	while (s && s[i])
 	{
 		ft_putchar_fd(s[i], fd);
 		i++;

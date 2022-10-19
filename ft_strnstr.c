@@ -6,7 +6,7 @@
 /*   By: mhrima <mhrima@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 23:24:23 by mhrima            #+#    #+#             */
-/*   Updated: 2022/10/14 23:19:21 by mhrima           ###   ########.fr       */
+/*   Updated: 2022/10/19 02:50:00 by mhrima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*the_return(const char *needle, char *str, size_t len)
 	i = 0;
 	if (!*needle)
 		return (str);
-	while (str[i] && i < len)
+	while (str && str[i] && i < len)
 	{
 		k = i;
 		j = 0;

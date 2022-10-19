@@ -6,7 +6,7 @@
 /*   By: mhrima <mhrima@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 00:18:02 by mhrima            #+#    #+#             */
-/*   Updated: 2022/10/18 20:59:22 by mhrima           ###   ########.fr       */
+/*   Updated: 2022/10/19 01:24:48 by mhrima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*ft_calloc(size_t count, size_t size)
 	void	*arr;
 
 	if (count && size > SIZE_MAX / count)
-		return (0);
+		return (NULL);
 	arr = (void *)malloc(count * size);
 	if (!arr)
 		return (NULL);
