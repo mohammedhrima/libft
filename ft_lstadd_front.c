@@ -6,7 +6,7 @@
 /*   By: mhrima <mhrima@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 11:23:53 by mhrima            #+#    #+#             */
-/*   Updated: 2022/10/19 13:37:11 by mhrima           ###   ########.fr       */
+/*   Updated: 2022/10/19 14:14:37 by mhrima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	if (!new || !lst || !(*lst))
-	{
+	if (!new || !lst)
 		return ;
-	}
 	new->next = *lst;
 	*lst = new;
 }

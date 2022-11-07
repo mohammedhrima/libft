@@ -6,7 +6,7 @@
 /*   By: mhrima <mhrima@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 10:32:57 by mhrima            #+#    #+#             */
-/*   Updated: 2022/10/19 02:54:44 by mhrima           ###   ########.fr       */
+/*   Updated: 2022/10/20 00:48:08 by mhrima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	size_t			len;
 	char			*res;
 
+	if (!s || !f)
+		return (NULL);
 	i = 0;
 	len = ft_strlen(s);
 	res = (char *)malloc((len + 1) * sizeof(char));

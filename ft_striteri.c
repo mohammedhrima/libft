@@ -6,7 +6,7 @@
 /*   By: mhrima <mhrima@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 10:36:57 by mhrima            #+#    #+#             */
-/*   Updated: 2022/10/10 03:47:09 by mhrima           ###   ########.fr       */
+/*   Updated: 2022/10/19 22:33:46 by mhrima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
 	unsigned int	i;
 
+	if (!s || !f)
+		return ;
 	i = 0;
 	while (s[i])
 	{

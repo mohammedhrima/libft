@@ -6,7 +6,7 @@
 /*   By: mhrima <mhrima@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 22:09:09 by mhrima            #+#    #+#             */
-/*   Updated: 2022/10/18 20:42:45 by mhrima           ###   ########.fr       */
+/*   Updated: 2022/10/19 14:15:33 by mhrima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,12 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	if (!del || !lst)
 		return ;
 	currentlst = *lst;
-	while (currentlst->next)
+	while (currentlst)
 	{
 		nextlst = currentlst->next;
 		free(currentlst);
 		del(currentlst->content);
 		currentlst = nextlst;
 	}
-	free(currentlst);
-	del(currentlst->content);
 	*lst = NULL;
 }

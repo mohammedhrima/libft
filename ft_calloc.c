@@ -6,7 +6,7 @@
 /*   By: mhrima <mhrima@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 00:18:02 by mhrima            #+#    #+#             */
-/*   Updated: 2022/10/19 01:24:48 by mhrima           ###   ########.fr       */
+/*   Updated: 2022/10/19 14:11:42 by mhrima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	*ft_calloc(size_t count, size_t size)
 	arr = (void *)malloc(count * size);
 	if (!arr)
 		return (NULL);
-	arr = NULL;
 	ft_bzero(arr, count * size);
 	return (arr);
 }

@@ -6,7 +6,7 @@
 /*   By: mhrima <mhrima@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 12:57:43 by mhrima            #+#    #+#             */
-/*   Updated: 2022/10/18 20:58:30 by mhrima           ###   ########.fr       */
+/*   Updated: 2022/10/19 14:17:33 by mhrima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*new_lst;
 	t_list	*node;
 
-	if (!lst || !f || !del)
+	if (!lst || !f)
 		return (NULL);
 	new_lst = NULL;
 	while (lst)

@@ -6,10 +6,11 @@
 /*   By: mhrima <mhrima@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 23:41:16 by mhrima            #+#    #+#             */
-/*   Updated: 2022/10/19 01:21:41 by mhrima           ###   ########.fr       */
+/*   Updated: 2022/10/19 14:10:55 by mhrima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <limits.h>
 #include <stdlib.h>
 
 int	ft_isspace(char c)
@@ -44,10 +45,10 @@ int	ft_atoi(const char *str)
 	{
 		num = num * 10 + sign * (str[i] - '0');
 		if (sign == 1 && str[i + 1] <= '9' && str[i + 1] >= '0'
-			&& num > (INT64_MAX - sign * (str[i + 1] - '0')) / 10)
+			&& num > (LONG_MAX - sign * (str[i + 1] - '0')) / 10)
 			return (-1);
 		if (sign == -1 && str[i + 1] <= '9' && str[i + 1] >= '0'
-			&& num < (INT64_MIN - sign * (str[i + 1] - '0')) / 10)
+			&& num < (LONG_MIN - sign * (str[i + 1] - '0')) / 10)
 			return (0);
 		i++;
 	}

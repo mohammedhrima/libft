@@ -6,7 +6,7 @@
 /*   By: mhrima <mhrima@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 23:10:02 by mhrima            #+#    #+#             */
-/*   Updated: 2022/10/11 05:24:43 by mhrima           ###   ########.fr       */
+/*   Updated: 2022/10/19 23:36:05 by mhrima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ char	*ft_strrchr(const char *s, int c)
 		s--;
 		len--;
 	}
-	return (0);
+	return (NULL);
 }

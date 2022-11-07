@@ -6,7 +6,7 @@
 /*   By: mhrima <mhrima@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 23:45:08 by mhrima            #+#    #+#             */
-/*   Updated: 2022/10/13 11:02:07 by mhrima           ###   ########.fr       */
+/*   Updated: 2022/10/19 22:30:40 by mhrima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strdup(const char *s)
 	char	*ptr;
 	int		i;
 
-	ptr = malloc(ft_strlen(s) + 1);
+	ptr = (char *)malloc(ft_strlen(s) + 1);
 	if (!ptr)
 		return (NULL);
 	i = 0;

@@ -6,7 +6,7 @@
 /*   By: mhrima <mhrima@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 23:58:56 by mhrima            #+#    #+#             */
-/*   Updated: 2022/10/13 11:01:07 by mhrima           ###   ########.fr       */
+/*   Updated: 2022/10/20 00:52:06 by mhrima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char			*ptr;
 	unsigned int	i;
 
+	if (!s)
+		return (ft_strdup(""));
 	if (start >= ft_strlen(s))
 		return (ft_calloc(1, 1));
 	if (len > ft_strlen(s) - start)

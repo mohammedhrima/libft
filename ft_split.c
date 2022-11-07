@@ -6,7 +6,7 @@
 /*   By: mhrima <mhrima@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 00:31:02 by mhrima            #+#    #+#             */
-/*   Updated: 2022/10/13 11:03:21 by mhrima           ###   ########.fr       */
+/*   Updated: 2022/10/19 22:25:42 by mhrima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ char	**ft_split(char const *s, char c)
 {
 	char	**res;
 
+	if (!s)
+		return (NULL);
 	res = (char **)malloc((array_len(s, c) + 1) * sizeof(char *));
 	if (res == NULL)
 		return (NULL);
