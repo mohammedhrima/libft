@@ -6,7 +6,7 @@
 /*   By: mhrima <mhrima@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 00:01:12 by mhrima            #+#    #+#             */
-/*   Updated: 2022/10/19 23:20:57 by mhrima           ###   ########.fr       */
+/*   Updated: 2022/12/09 01:34:51 by mhrima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,22 @@ char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*str;
 	int		i;
+	int		j;
 
 	i = 0;
-	if (!s1 && s2)
-		return ((char *)s2);
-	if (s1 && !s2)
-		return ((char *)s1);
-	if (!s1 && !s2)
-		return (NULL);
-	str = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	j = 0;
+	str = ft_calloc((ft_strlen(s1) + ft_strlen(s2) + 1), sizeof(char));
 	if (!str)
 		return (NULL);
-	while (*s1)
+	while (s1 && *s1)
 		str[i++] = *s1++;
-	while (*s2)
+	free((void *)(s1 - i));
+	while (s2 && *s2)
+	{
 		str[i++] = *s2++;
+		j++;
+	}
+	free((void *)(s2 - j));
 	str[i] = '\0';
 	return (str);
 }

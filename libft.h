@@ -6,7 +6,7 @@
 /*   By: mhrima <mhrima@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 10:45:22 by mhrima            #+#    #+#             */
-/*   Updated: 2022/10/19 20:05:32 by mhrima           ###   ########.fr       */
+/*   Updated: 2022/12/09 01:41:41 by mhrima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,14 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdlib.h>
+# include <sys/types.h>
+# include <sys/uio.h>
+# include <unistd.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1
+# endif
 
 typedef struct s_list
 {
@@ -67,5 +75,10 @@ void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
+int	includes2(char *str, char c);
+char	*handle_backup_and_set_res(char **bcp, char **str, char **res);
+int	read_from_file_and_feed_str(char **str, char **bcp, int fd, ssize_t *r);
+void	in_the_end_of_file(char **bcp, char **str, char **res);
+char	*get_next_line(int fd);
 
 #endif
