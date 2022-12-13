@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhrima <mhrima@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/08 23:24:23 by mhrima            #+#    #+#             */
-/*   Updated: 2022/12/09 06:04:54 by mhrima           ###   ########.fr       */
+/*   Created: 2022/12/09 06:05:07 by mhrima            #+#    #+#             */
+/*   Updated: 2022/12/09 06:06:10 by mhrima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*the_return(const char *needle, char *str, size_t len)
+char	*the_return(const char *needle, char *str)
 {
 	size_t	i;
 	int		j;
@@ -21,11 +21,11 @@ char	*the_return(const char *needle, char *str, size_t len)
 	i = 0;
 	if (!*needle)
 		return (str);
-	while (str && str[i] && i < len)
+	while (str && str[i])
 	{
 		k = i;
 		j = 0;
-		while (str[k] == needle[j] && needle[j] && str[k] && k < len)
+		while (str[k] == needle[j] && needle[j] && str[k])
 		{
 			k++;
 			j++;
@@ -37,12 +37,12 @@ char	*the_return(const char *needle, char *str, size_t len)
 	return (NULL);
 }
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+char	*ft_strstr(const char *haystack, const char *needle)
 {
 	char	*str;
 
 	if (ft_strncmp(needle, "", 1) == 0)
 		return ((char *)haystack);
 	str = (char *)haystack;
-	return (the_return(needle, str, len));
+	return (the_return(needle, str));
 }

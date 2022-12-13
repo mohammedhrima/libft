@@ -6,7 +6,7 @@
 /*   By: mhrima <mhrima@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 10:45:22 by mhrima            #+#    #+#             */
-/*   Updated: 2022/12/09 01:41:41 by mhrima           ###   ########.fr       */
+/*   Updated: 2022/12/09 06:08:05 by mhrima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ char				*ft_substr(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s1, char const *set);
 char				**ft_split(char const *s, char c);
+char				**ft_split2(char const *s, char c, int min);
 char				*ft_itoa(int n);
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
@@ -80,5 +81,6 @@ char	*handle_backup_and_set_res(char **bcp, char **str, char **res);
 int	read_from_file_and_feed_str(char **str, char **bcp, int fd, ssize_t *r);
 void	in_the_end_of_file(char **bcp, char **str, char **res);
 char	*get_next_line(int fd);
+char	*ft_strstr(const char *haystack, const char *needle);
 
 #endif
