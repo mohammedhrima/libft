@@ -6,7 +6,7 @@
 /*   By: mhrima <mhrima@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 23:07:23 by mhrima            #+#    #+#             */
-/*   Updated: 2022/10/19 22:44:44 by mhrima           ###   ########.fr       */
+/*   Updated: 2022/12/22 15:28:29 by mhrima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strchr(const char *s, int c)
 	int	i;
 
 	i = 0;
+	if(!s)
+		return (NULL);
 	while (s[i])
 	{
 		if (s[i] == (char)c)

@@ -6,7 +6,7 @@
 /*   By: mhrima <mhrima@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 10:45:22 by mhrima            #+#    #+#             */
-/*   Updated: 2022/12/22 01:24:41 by mhrima           ###   ########.fr       */
+/*   Updated: 2022/12/22 15:42:04 by mhrima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ char *ft_strrchr(const char *s, int c);
 int ft_strncmp(char const *s1, char const *s2, size_t n);
 void *ft_memchr(const void *s, int c, size_t n);
 int ft_memcmp(const void *s1, const void *s2, size_t n);
+int ft_strcmp(const char *s1, const char *s2);
 char *ft_strnstr(const char *str, const char *to_find,
 				 size_t len);
 int ft_atoi(const char *str);
@@ -82,6 +83,6 @@ char *handle_backup_and_set_res(char **bcp, char **str, char **res);
 int read_from_file_and_feed_str(char **str, char **bcp, int fd, ssize_t *r);
 void in_the_end_of_file(char **bcp, char **str, char **res);
 char *get_next_line(int fd);
-char *ft_strstr(const char *haystack, const char *needle);
+char	*ft_strstr(char *from, char *to_find);
 
 #endif
