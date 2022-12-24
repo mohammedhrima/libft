@@ -6,7 +6,7 @@
 /*   By: mhrima <mhrima@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 05:52:22 by mhrima            #+#    #+#             */
-/*   Updated: 2022/12/09 01:42:30 by mhrima           ###   ########.fr       */
+/*   Updated: 2022/12/23 11:58:34 by mhrima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ char	*handle_backup_and_set_res(char **bcp, char **str, char **res)
 		*bcp = NULL;
 	}
 	*bcp = ft_substr(*str, i + 1, ft_strlen(*str));
-	*res = ft_substr(*str, 0, i /*+ 1*/);
+	*res = ft_substr(*str, 0, i + 1);
 	free(*str);
 	*str = NULL;
 	return (*res);

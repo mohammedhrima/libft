@@ -73,7 +73,7 @@ char	**feed_array2(char const *s, char c, char **res, int len)
 char	**ft_split2(char const *s, char c, int len)
 {
 	char	**res;
-	int i;
+	int		i;
 
 	i = 0;
 	if (!s)
@@ -82,7 +82,7 @@ char	**ft_split2(char const *s, char c, int len)
 	if (res == NULL)
 		return (NULL);
 	while (i <= len)
-		res[i++] = NULL;	
+		res[i++] = NULL;
 	res = feed_array2(s, c, res, len);
 	return (res);
 }

@@ -6,7 +6,7 @@
 /*   By: mhrima <mhrima@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 06:05:07 by mhrima            #+#    #+#             */
-/*   Updated: 2022/12/22 15:42:50 by mhrima           ###   ########.fr       */
+/*   Updated: 2022/12/24 05:23:39 by mhrima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 char	*ft_strstr(char *from, char *to_find)
 {
-	int i;
-	int k;
-	int j;
-	
-	if(!from || !to_find)
+	int	i;
+	int	k;
+	int	j;
+
+	if (!from || !to_find)
 		return (NULL);
 	i = 0;
 	while (from[i])

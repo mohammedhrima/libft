@@ -48,8 +48,8 @@ int	get_end(char const *set, char const *s1)
 
 char	*the_return(int start, int end, const char *s1)
 {
-	char		*res;
-	size_t		i;
+	char	*res;
+	size_t	i;
 
 	i = 0;
 	res = (char *)malloc((end - start + 2) * sizeof(char));
@@ -66,8 +66,8 @@ char	*the_return(int start, int end, const char *s1)
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int		start;
-	int		end;
+	int	start;
+	int	end;
 
 	if (!s1)
 		return (NULL);
