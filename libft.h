@@ -6,7 +6,7 @@
 /*   By: mhrima <mhrima@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 10:45:22 by mhrima            #+#    #+#             */
-/*   Updated: 2022/12/23 11:34:58 by mhrima           ###   ########.fr       */
+/*   Updated: 2023/01/02 21:19:52 by mhrima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 # include <sys/types.h>
 # include <sys/uio.h>
 # include <unistd.h>
+#include <fcntl.h>
+#include <limits.h>
+#include <stdio.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1
@@ -36,7 +39,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
-char	*ft_strchr(const char *s, int c);
+char	*ft_strchr( char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 int		ft_strncmp(char const *s1, char const *s2, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
@@ -47,7 +50,7 @@ int		ft_atoi(const char *str);
 void	*ft_calloc(size_t count, size_t size);
 char	*ft_strdup(const char *s);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
-char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strjoin2(char *s1, char *s2);
 char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
@@ -59,10 +62,6 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
-int		includes2(char *str, char c);
-char	*handle_backup_and_set_res(char **bcp, char **str, char **res);
-int		read_from_file_and_feed_str(char **str, char **bcp, int fd, ssize_t *r);
-void	in_the_end_of_file(char **bcp, char **str, char **res);
 char	*get_next_line(int fd);
 char	*ft_strstr(char *from, char *to_find);
 

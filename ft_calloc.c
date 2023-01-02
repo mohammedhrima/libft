@@ -6,7 +6,7 @@
 /*   By: mhrima <mhrima@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 00:18:02 by mhrima            #+#    #+#             */
-/*   Updated: 2022/10/19 14:11:42 by mhrima           ###   ########.fr       */
+/*   Updated: 2023/01/02 21:14:35 by mhrima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,21 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	void	*arr;
+	void			*arr;
+	unsigned char	*ptr;
+	size_t			i;
 
 	if (count && size > SIZE_MAX / count)
 		return (NULL);
 	arr = (void *)malloc(count * size);
 	if (!arr)
 		return (NULL);
-	ft_bzero(arr, count * size);
+	i = 0;
+	ptr = (unsigned char *)arr;
+	while (i < count * size)
+	{
+		ptr[i] = 0;
+		i++;
+	}
 	return (arr);
 }

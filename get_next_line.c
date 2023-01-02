@@ -6,104 +6,104 @@
 /*   By: mhrima <mhrima@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 05:52:22 by mhrima            #+#    #+#             */
-/*   Updated: 2022/12/23 11:58:34 by mhrima           ###   ########.fr       */
+/*   Updated: 2023/01/02 21:17:44 by mhrima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	includes2(char *str, char c)
+char	**split_string(char *str, char c)
 {
-	int	i;
+	int		i;
+	char	**arr;
 
 	i = 0;
+	arr = malloc(2 * sizeof(char *));
 	while (str && str[i])
 	{
 		if (str[i] == c)
-			return (i);
+		{
+			arr[1] = ft_strdup(str + i + 1);
+			str[i + 1] = '\0';
+			arr[0] = ft_strdup(str);
+			return (arr);
+		}
 		i++;
 	}
-	return (-1);
+	return (arr);
 }
 
-char	*handle_backup_and_set_res(char **bcp, char **str, char **res)
+char	*bcp_with_nl(char **str, char **bcp)
 {
-	int		i;
+	char	*res;
+	char	**arr;
 	char	*tmp;
+
+	arr = split_string(*bcp, '\n');
+	res = arr[0];
+	tmp = arr[1];
+	free(*bcp);
+	*bcp = tmp;
+	free(arr);
+	free(*str);
+	return (res);
+}
+
+char	*end_of_file(char **bcp, char **str)
+{
+	char	*res;
 
 	if (ft_strlen(*bcp))
 	{
-		tmp = ft_strjoin(*bcp, *str);
-		*str = tmp;
-		*bcp = NULL;
-	}
-	i = includes2(*str, '\n');
-	if (i == -1)
-	{
-		i = ft_strlen(*str) - 1;
+		free(*str);
+		res = ft_strdup(*bcp);
 		free(*bcp);
 		*bcp = NULL;
+		return (res);
 	}
-	*bcp = ft_substr(*str, i + 1, ft_strlen(*str));
-	*res = ft_substr(*str, 0, i + 1);
 	free(*str);
-	*str = NULL;
-	return (*res);
+	return (NULL);
 }
 
-int	read_from_file_and_feed_str(char **str, char **bcp, int fd, ssize_t *r)
+int	read_from_file(int fd, char **str, char **bcp, int *readen)
 {
 	char	*tmp;
 
-	tmp = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
-	if (tmp == NULL)
+	ft_bzero(*str, BUFFER_SIZE);
+	*readen = read(fd, *str, BUFFER_SIZE * sizeof(char));
+	if (*readen > 0)
+		(*str)[*readen] = 0;
+	if (*readen < 0)
 	{
 		free(*str);
-		return (0);
+		return (*readen);
 	}
-	*r = read(fd, tmp, BUFFER_SIZE);
-	if (*r == -1)
-	{
-		free(tmp);
-		free(*str);
-		free(*bcp);
-		return (0);
-	}
-	tmp[*r] = '\0';
-	*str = ft_strjoin(*str, tmp);
-	return (1);
-}
-
-void	in_the_end_of_file(char **bcp, char **str, char **res)
-{
-	free(&bcp);
-	free(&str);
-	free(&res);
+	tmp = ft_strjoin(*bcp, *str);
+	free(*bcp);
+	*bcp = ft_strdup(tmp);
+	free(tmp);
+	return (*readen);
 }
 
 char	*get_next_line(int fd)
 {
-	char		*res;
 	char		*str;
+	int			readen;
 	static char	*bcp;
-	ssize_t		r;
 
-	res = NULL;
-	if (fd < 0)
+	if (fd < 0 || fd > OPEN_MAX)
 		return (NULL);
-	str = ft_calloc(1, sizeof(char));
-	if (!str)
-		return (NULL);
-	r = 1;
-	while (r && includes2(str, '\n') == -1)
+	readen = 1;
+	str = malloc((BUFFER_SIZE + 1) * sizeof(char));
+	while (1)
 	{
-		if (!r)
-		{
-			in_the_end_of_file(&bcp, &str, &res);
-			return (NULL);
-		}
-		if (!read_from_file_and_feed_str(&str, &bcp, fd, &r))
+		if (bcp && ft_strchr(bcp, '\n'))
+			return (bcp_with_nl(&str, &bcp));
+		if (!readen)
+			return (end_of_file(&bcp, &str));
+		if (read_from_file(fd, &str, &bcp, &readen) < 0)
 			return (NULL);
 	}
-	return (handle_backup_and_set_res(&bcp, &str, &res));
+	free(str);
+	return (NULL);
 }

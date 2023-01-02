@@ -6,7 +6,7 @@
 /*   By: mhrima <mhrima@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 23:45:08 by mhrima            #+#    #+#             */
-/*   Updated: 2022/12/09 01:35:28 by mhrima           ###   ########.fr       */
+/*   Updated: 2023/01/02 21:15:07 by mhrima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strdup(const char *s)
 	if (!ptr)
 		return (NULL);
 	i = 0;
-	while (s[i])
+	while (s && s[i])
 	{
 		ptr[i] = s[i];
 		i++;
